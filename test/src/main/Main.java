@@ -29,8 +29,12 @@ import level1.sub.WeeklyChallenge2;
  * [1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5]	"right"		"LRLLLRLLRRL"
  * 												  1차 LRLRRLLLRRR
  * 												  2차 LRLLLRLLLRL
+ * 												  3차 LRLLLRLLRRL
  * [7, 0, 8, 2, 8, 3, 1, 5, 7, 6, 2]	"left"		"LRLLRRLLLRR"
+ * 												  1차 LLLLLRLLLRR
+ * 												  2차 LRLLRRLLLRR
  * [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]		"right"		"LLRLLRLLRL"
+ * 												  1차 LLRLLRLLRL
  *
  */
 
@@ -39,7 +43,9 @@ public class Main {
 	public static void main(String[] args) {
 		TypingKeyPad keypad = new TypingKeyPad();
 		
-		int numbers[] = {1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5};
+		// int numbers[] = {1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5};
+		// int numbers[] = {7, 0, 8, 2, 8, 3, 1, 5, 7, 6, 2};
+		int numbers[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
 		String hand = "right";
 		
 		keypad.solution(numbers, hand);
