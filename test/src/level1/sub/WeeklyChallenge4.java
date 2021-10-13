@@ -30,7 +30,10 @@ import java.util.Map;
  * ,"CONTENTS JAVASCRIPT JAVA PYTHON SQL C++"
  * ,"HARDWARE C C++ PYTHON JAVA JAVASCRIPT"
  * ,"PORTAL JAVA JAVASCRIPT PYTHON KOTLIN PHP"
- * ,"GAME C++ C# JAVASCRIPT C JAVA"]	
+ * ,"GAME C++ C# JAVASCRIPT C JAVA"]	 
+ * 
+ * arrMap
+ * SI:[JAVA, JAVASCRIPT, SQL, PYTHON, C#] 이런식으로 할거임
  * 
  */
 
@@ -41,6 +44,7 @@ public class WeeklyChallenge4 {
 	public String solution(String table[], String languages[], int preference[]) {
 		
 		for(int i = 0; i < table.length; i++) {
+			key = table[i].split(" ")[0];
 			for(int j = 0; j < table[i].split(" ").length; j++) {
 				if(j == 0) { // 0인 값은 key
 					arrMap.put(key, table[i].split(" "));
