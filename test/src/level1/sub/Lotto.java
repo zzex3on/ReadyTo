@@ -46,10 +46,11 @@ public class Lotto {
 	    		for(int j = 0; j < win_nums.length; j++) {
 	    			if(lottos[i] == win_nums[j]) {
 	    				score++;
-	    			} else if (lottos[i] == 0) {
-	    				zeroNum++;
 	    			}
 	    		}
+	    		if (lottos[i] == 0) {
+    				zeroNum++;
+    			}
 	    	}
 	    	
 	    	for(int k = 0; k < answer.length; k++) {
@@ -69,6 +70,7 @@ public class Lotto {
 		    	answer[k] = totalRank;
 	    	}
 	    	
+	    	System.out.println(answer[0] + ", " + answer[1]);
 	        return answer;
 	}
 

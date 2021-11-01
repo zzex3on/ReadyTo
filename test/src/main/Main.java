@@ -1,6 +1,7 @@
 package main;
 import level1.sub.CoveringNumber;
 import level1.sub.NumberOfK;
+import level1.sub.RecNewID;
 import level1.sub.TypingKeyPad;
 import level1.sub.WeeklyChallenge2;
 import level1.sub.WeeklyChallenge4;
@@ -9,15 +10,17 @@ import level1.sub.Lotto;
 public class Main {
 
 	public static void main(String[] args) {
-		Lotto lotto = new Lotto();
+		RecNewID newID = new RecNewID();
 		
-		int[] lottos = {44, 1, 0, 0, 31, 25};
-		int[] win_nums = {31, 10, 45, 1, 6, 19};
+		String new_id = "...!@BaT#*..y.abcdefghijklm";
 		
-		lotto.solution(lottos, win_nums);
+		newID.solution(new_id);
+		
 	}
 
 }
+
+
 
 /** WeeklyChallenge4 **/
 
@@ -33,3 +36,12 @@ String languages[] = {"PYTHON", "C++", "SQL"};
 int preference[] = {7, 5, 5};
 
 week4.solution(table, languages, preference);*/
+
+/** Lotto **/
+
+/*Lotto lotto = new Lotto();
+
+int[] lottos = {45, 4, 35, 20, 3, 9};
+int[] win_nums = {20, 9, 3, 45, 4, 35};
+
+lotto.solution(lottos, win_nums);*/
