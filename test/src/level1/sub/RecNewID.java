@@ -30,15 +30,30 @@
 
 package level1.sub;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RecNewID {
     public String solution(String new_id) {
     	
+    	System.out.println("0단계 : " + new_id);
+    	System.out.println("=======================================");
+    	
     	// 1단계, 소문자 치환
     	new_id = new_id.toLowerCase();
+    	System.out.println("1단계 : " + new_id);
     	
     	// 2단계, 소문자/숫자/-/_/. 제외한 모든 문자 제거
-    	// /([a-z0-9-_.])/g
+    	new_id = new_id.replaceAll("[^a-z0-9-_.]", "");
+    	System.out.println("2단계 : " + new_id);
+
+    	// 3단계, 마침표 2개 이상을 1개로 치환
+    	new_id = new_id.replaceAll("[.]{2,15}", ".");
+    	System.out.println("3단계 : " + new_id);
+    	
+    	// 4단계, 마침표가 처음 혹은 끝에 있을 경우 제거
+    	new_id = new_id.replaceAll("^[^.]$", "");
+    	System.out.println("4단계 : " + new_id);
         
     	return new_id;
     }
