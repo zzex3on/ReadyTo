@@ -21,11 +21,11 @@
 
  * 입출력 예 설명
  * No		new_id								result
- * 예1		"...!@BaT#*..y.abcdefghijklm"		"bat.y.abcdefghi"
- * 예2		"z-+.^."							"z--"
- * 예3		"=.="								"aaa"
- * 예4		"123_.def"							"123_.def"
- * 예5		"abcdefghijklmn.p"					"abcdefghijklmn"
+ * 예1		"...!@BaT#*..y.abcdefghijklm"		"bat.y.abcdefghi"	O
+ * 예2		"z-+.^."							"z--"				O
+ * 예3		"=.="								"aaa"				O
+ * 예4		"123_.def"							"123_.def"			O
+ * 예5		"abcdefghijklmn.p"					"abcdefghijklmn"	O
  **/
 
 package level1.sub;
@@ -48,12 +48,37 @@ public class RecNewID {
     	System.out.println("2단계 : " + new_id);
 
     	// 3단계, 마침표 2개 이상을 1개로 치환
-    	new_id = new_id.replaceAll("[.]{2,15}", ".");
+    	new_id = new_id.replaceAll("[.]{2,}", ".");
     	System.out.println("3단계 : " + new_id);
     	
-    	// 4단계, 마침표가 처음 혹은 끝에 있을 경우 제거
-    	new_id = new_id.replaceAll("^[^.]$", "");
+    	// 4단계, 마침표가 처음 혹은 끝에 있을 경우 제거 (공백도 제거..)
+    	new_id = new_id.replaceAll("^\\.\\s*", "");
+    	new_id = new_id.replaceAll("\\.\\s*$", "");
     	System.out.println("4단계 : " + new_id);
+    	
+    	// 5단계, 빈 문자열일 경우 a를 대입
+    	String temp = new_id.replaceAll("[a-z\\d]", ""); // 문자/숫자만 추출
+    	if(temp.equals("") || new_id.equals("")) {
+    		new_id = new_id.replaceAll("[^a-z\\d]*", "a");
+    	}
+    	System.out.println("5단계 : " + new_id);
+    	
+    	// 6단계, 16자 이상일 경우 15자까지 자름, 마지막 문자가 .일 경우 제거
+    	if(new_id.length() > 15) {
+    		new_id = new_id.substring(0, 15);
+    	}
+    	if(new_id.substring(new_id.length() - 1).equals(".")) {
+    		new_id = new_id.substring(0, new_id.length() - 1);
+    	}
+    	System.out.println("6단계 : " + new_id);
+    	
+    	// 7단계, 2자 이하일 경우 마지막 문자를 3자가 될 때까지 반복하여 붙임
+    	if(new_id.length() <= 2) {
+    		while(new_id.length() < 3) {
+    			new_id += new_id.substring(new_id.length() - 1);
+    		}
+    	}
+    	System.out.println("7단계 : " + new_id);
         
     	return new_id;
     }
